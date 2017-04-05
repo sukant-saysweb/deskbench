@@ -1,0 +1,59 @@
+name = Bootstrap Material Design
+description = A Material Design subtheme based on Bootstrap.
+core = 7.x
+base theme = bootstrap
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[header]         = 'Header'
+regions[banner]    = 'Banner'
+regions[bc_fp_1] = 'Front Page Before Content Col1'
+regions[bc_fp_2] = 'Front Page Before Content Col2'
+regions[bc_fp_3] = 'Front Page Before Content Col3'
+regions[content]        = 'Content'
+regions[sidebar]  = 'Sidebar'
+regions[fp_1] = 'Front Page Col1'
+regions[fp_2] = 'Front Page Col2'
+regions[fp_3] = 'Front Page Col3'
+regions[after_content]        = 'After Content'
+regions[footer]         = 'Footer'
+regions[footer_col1]         = 'Footer Col1'
+regions[footer_col2]         = 'Footer Col2'
+regions[footer_col3]         = 'Footer Col3'
+regions[footer_bottom]         = 'Footer Bottom'
+regions[sidenav_top]    = 'SideNav Top'
+regions[sidenav]    = 'SideNav'
+
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = css/bootstrap_material.css
+stylesheets[all][] = css/bootstrap_material.min.css
+stylesheets[all][] = css/materialize.css
+stylesheets[all][] = css/materialize.min.css
+stylesheets[all][] = css/styles.css
+stylesheets[all][] = css/material.css
+stylesheets[all][] = css/material.cyan-light_blue.min.css
+stylesheets[all][] = css/material.min.css
+stylesheets[all][] = css/material.min.css.map
+
+
+; ;;;;;;;;;;;;;;;;;;;;;
+; ;; Scripts
+; ;;;;;;;;;;;;;;;;;;;;;
+
+ scripts[] = 'js/materialize.js'
+ scripts[] = 'js/deskbench.js'
+ scripts[] = 'js/materialize.min.js'
+ scripts[] = 'js/bootstrap_material.js'
+ scripts[] = 'js/deskbench.js'
+ scripts[] = 'js/material.js
+ scripts[] = 'js/material.min.js'
+ scripts[] = 'js/material.min.js.map'
+ scripts[] = 'js/navAccordion.js'
+ scripts[] = 'js/navAccordion.min.js'

@@ -1,0 +1,103 @@
+<?php
+
+/**
+ *Implements hook_permission()
+ */
+function new_session_permission(){
+  $permissions = array(
+    'renew_licence' => array(
+      'title' => t('Generate all session Tables'),
+    ),
+  );
+  return $permissions;  
+}
+
+/**
+ *  Implements hook_menu()
+ */
+function new_session_menu(){
+  $items = array();
+  
+  $items['new_session'] = array(
+    'title' => 'Session ID',
+    'description' => 'This will generate database tables for new session.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('renew_licence'),
+    'access arguments' => array('renew licence'),
+  );
+  
+  return $items;
+}
+
+/**
+ *Implements page callback()
+ */
+function renew_licence($form, &$form_state){
+  $form = array();
+  $form['board'] = array(
+    '#type' => 'select',
+    '#title' => 'Select a board',
+    '#options' => drupal_map_assoc(array('C.B.S.E.', 'I.C.S.E.', 'State Board', 'Other')),
+    '#required' => TRUE,
+  );
+  
+  $form['sb'] = array(
+		'#type' => 'container',
+		'#states' => array(
+			'visible' => array(
+			  ':input[name = "board"]' => array('value' => 'State Board'),
+			),
+		),
+	);
+  
+  $states = array('Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir',
+  'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha(Orissa)', 'Punjab',
+  'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal');
+  
+  $form['sb']['sas'] = array(
+    '#type' => 'select',
+    '#title' => 'Select A State',
+    '#options' => drupal_map_assoc($states),
+    '#required' => TRUE,
+  );
+  
+  $form['other'] = array(
+		'#type' => 'container',
+		'#states' => array(
+			'visible' => array(
+			  ':input[name = "board"]' => array('value' => 'State Board'),
+			),
+		),
+	);
+  
+  $form['new_session'] = array(
+    '#title' => 'New Session',
+    '#description' => 'This will update the system for next academic session(FORMAT eg: "2015_16").',
+    '#type' => 'textfield',
+  );
+  
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Generate new Session ID'),
+    '#submit' => array('new_session_submit'),
+  );
+  return $form;
+}
+
+/**
+ *Implements hook_submit()
+ */
+function new_session_submit($form, &$form_state){
+  dsm('Session ID generated successfully');
+  variable_get('essa_sid');
+  variable_set('essa_sid', clean($form_state['values']['new_session']));
+}
+
+/**
+ *Supporting function to clean the array id.
+ */
+function clean($string) {
+   $string = str_replace(' ', '_', $string); // Replaces all spaces with hyphens.
+   $string = str_replace('-', '_', $string);
+   return preg_replace('/[^A-Za-z0-9\-]/', '_', $string); // Removes special chars.
+}

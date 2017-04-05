@@ -1,0 +1,52 @@
+<?php
+
+/**
+ *Implements hook_permission()
+ */
+function school_registeration_permission(){
+  return array(
+    'essa_admin' => array(
+      'title' => t('ESSA Menu Access'),
+      'description' => t('Warning: Give to trusted roles only; this permission has security implications. Only to representatives of SAYSWEB'),
+    ),
+		'school_registeration' => array(
+      'title' => t('School Registration'),
+      'description' => t('Warning: Give to trusted roles only; this permission has security implications. Only to representatives of SAYSWEB'),
+    ),
+	);
+}
+/**
+ *Implements hook_menu()
+ */
+function school_registeration_menu(){
+	$items = array();
+  
+	$items['admin/essa'] = array(
+	  'title' => t('ESSA'),
+	  'description' => t('For internal use only.'),
+	  'page callback' => 'drupal_get_form',
+    'page arguments' => array('setting_form'),
+	  'access arguments' => array('essa_admin'),
+	);
+	
+	$items['admin/essa/register_a_school'] = array(
+	  'title' => t('Register A School'),
+	  'description' => t('Registering a school. Must be doen only by a company representative'),
+	  'page callback' => 'drupal_get_form',
+    'page arguments' => array('school_registeration_form'),
+	  'access arguments' => array('school_registeration'),
+		'file' => 'school_registeration_form.admin.inc',
+    'file path' => drupal_get_path('module','school_registeration').'/includes/school',
+	);
+	
+	$items['register_a_school'] = array(
+	  'title' => t('Register A School'),
+	  'description' => t('Registering a school. Must be doen only by a company representative'),
+	  'page callback' => 'drupal_get_form',
+    'page arguments' => array('school_registeration_form'),
+	  'access arguments' => array('school_registeration'),
+		'file' => 'school_registeration_form.admin.inc',
+    'file path' => drupal_get_path('module','school_registeration').'/includes/school',
+	);
+	return $items;
+}

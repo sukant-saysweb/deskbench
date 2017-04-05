@@ -1,0 +1,68 @@
+.form-type-date-popup label{
+  float: left;  
+}
+
+#school-registeration-form #edit-ss{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#school-registeration-form label, #create-route-form label, #edit-route label{
+  display: inline-block;
+  width:  220px;
+}
+
+#school-registeration-form .form-type-radio{
+  display: inline-block;
+  margin-right: 30px !important;
+}
+
+label[for=edit-hostel], label[for=edit-transport]{
+  float: left;
+}
+
+.form-item-house1{
+  margin-left: 10% !important;  
+}
+
+.form-item-house1, .form-item-house2, .form-item-house3{
+  float: left;
+  margin-right: 50px !important;
+}
+
+#edit-hs .fieldset-wrapper{
+  margin-top: 10px !important;
+}
+
+#transport-form{
+  width: 80%;
+  margin-left: 10%;
+}
+
+.page-admin-settings-transport-setting .action-links{
+  margin-right: 10%;
+}
+
+#edit-financialyear{
+  float: left;
+  width: 50%;
+  clear: both;
+}
+
+.form-item-addofschool label{
+  float: left;
+}
+
+#edit-addofschool{
+  width: 70%;
+}
+
+#edit-addofschool .form-type-checkbox{
+  float: left;
+  width: 120px;
+}
+
+#class-setup .form-type-checkbox{
+  display: inline-block;
+  width: 80px;
+}

@@ -1,0 +1,5 @@
+name = School Registration
+description = This module is the source of the system. Access will be highly secure.
+core = 7.x
+package = ESSA Core
+stylesheets[all][] = school_registeration.css

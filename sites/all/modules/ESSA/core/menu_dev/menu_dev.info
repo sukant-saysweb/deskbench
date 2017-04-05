@@ -1,0 +1,5 @@
+name = ESSA Menu
+description = Create customised menu for ESSA
+core = 7.x
+package = ESSA Core
+stylesheets[all][] = menu_dev.css

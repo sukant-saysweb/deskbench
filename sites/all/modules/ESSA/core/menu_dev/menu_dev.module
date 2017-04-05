@@ -1,0 +1,29 @@
+<?php
+/**
+ *Implements hook_block_info()
+ */
+function menu_dev_block_info(){
+	$block['main_menu'] = array(
+		'info' => t('ESSA Menu'),
+		'cache' => DRUPAL_NO_CACHE,
+	);
+	
+	return $block;
+}
+
+/**
+ *Implements hook_block_view()
+ */
+function menu_dev_block_view($delta = ''){
+	$main_menu_tree = menu_tree_all_data('main-menu');
+
+  // Add the rendered output to the $main_menu_expanded variable
+  //$variables['main_menu_expanded'] = menu_tree_output($main_menu_tree);
+	//kpr($main_menu_tree);
+	$output = '<h3>ESSA Menu</h3>';
+	$block['subject'] = 'ESSA Menu';
+	$block['content'] = array(
+		'#markup' => $output,
+	);
+	return $block;
+}
